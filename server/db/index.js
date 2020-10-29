@@ -5,3 +5,29 @@ var mysql = require('mysql');
 // and to the database "chat".
 
 
+const dbConnection = mysql.createConnection({
+  user: 'root',
+  password: '',
+  database: 'chat'
+});
+// dbConnection.connect((err)=> { console.log('connected to sql', err); });
+
+// var tablename = 'messages';
+
+dbConnection.connect();
+
+// module.export = {
+//   getConnection: (callback) => {
+//     return dbConnection.getConnection(callback);
+//   }
+// };
+
+// dbConnection.query('SELECT message FROM messages', function (error, results, fields) {
+//   if (error) {
+//     console.log('error but we accessed query');
+//     throw error;
+//   }
+//   console.log('results', results);
+// });
+
+module.exports = dbConnection;
