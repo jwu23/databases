@@ -14,14 +14,16 @@ module.exports = {
     });
   }, // a function which handles a get request for all messages
   post: function (req, res) {
-    models.messages.create((err, data) => {
+    models.messages.create(req.data, (err, data) => {
       if (err) {
         console.log('hi');
         res.sendStatus(404);
       } else {
         console.log('hi2');
-        res.status(200);
+        res.status(200).json(data);
       }
     });
   } // a function which handles posting a message to the database
 };
+
+// req.data is the object with the information sent from client

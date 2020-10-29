@@ -4,9 +4,9 @@ USE chat;
 
 CREATE TABLE messages (
   /* Describe your table here.*/
-  id INTEGER PRIMARY KEY,
-  username TEXT NOT NULL
-  roomname TEXT NOT NULL
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  username TEXT NOT NULL,
+  roomname TEXT NOT NULL,
   message TEXT NOT NULL,
   createdAt DATETIME
 );
