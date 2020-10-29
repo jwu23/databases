@@ -10,11 +10,11 @@ const dbConnection = mysql.createConnection({
   password: '',
   database: 'chat'
 });
-// dbConnection.connect((err)=> { console.log('connected to sql', err); });
+
 
 // var tablename = 'messages';
 
-dbConnection.connect();
+// dbConnection.connect();
 
 // module.export = {
 //   getConnection: (callback) => {
@@ -32,4 +32,4 @@ dbConnection.connect();
 
 // wrong export?
 
-module.exports = dbConnection;
+module.exports.dbConnection = dbConnection;

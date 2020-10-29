@@ -7,8 +7,7 @@ CREATE TABLE messages (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
   username TEXT,
   roomname TEXT,
-  message TEXT,
-  createdAt DATETIME
+  message TEXT
 );
 
 /* Create other tables and define schemas for them here! */
