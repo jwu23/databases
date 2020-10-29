@@ -4,7 +4,8 @@ module.exports = {
   getAll: function (callback) {
     // write function to access db
     // return all data
-    db.query('SELECT message FROM messages', function (error, results, fields) {
+
+    db.query('SELECT message FROM messages;', function (error, results, fields) {
       if (error) {
         callback(error, null);
       }
@@ -14,7 +15,9 @@ module.exports = {
     });
   }, // a function which produces all the messages
   create: function (data, callback) {
-    db.query(`INSERT INTO messages VALUES ('${data[username]}', '${data[roomname]}', '${data[text]}')`, function (error, results, fields) {
+    console.log('message data', data);
+
+    db.query(`INSERT INTO messages (username, roomname, message) VALUES ('${data.username}', '${data.roomname}', '${data.text}');`, function (error, results, fields) {
       if (error) {
         callback(error, null);
       } else {

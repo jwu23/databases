@@ -30,4 +30,6 @@ dbConnection.connect();
 //   console.log('results', results);
 // });
 
+// wrong export?
+
 module.exports = dbConnection;

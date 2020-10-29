@@ -14,15 +14,20 @@ module.exports = {
     });
   }, // a function which handles a get request for all messages
   post: function (req, res) {
-    models.messages.create(req.data, (err, data) => {
-      if (err) {
-        console.log('hi');
-        res.sendStatus(404);
-      } else {
-        console.log('hi2');
-        res.status(200).json(data);
-      }
-    });
+    if (req.body === undefined) {
+      res.sendStatus(404);
+      res.end();
+    } else {
+      models.messages.create(req.body, (err, data) => {
+        if (err) {
+          console.log('hi');
+          res.sendStatus(404);
+        } else {
+          console.log('hi2');
+          res.status(200).json(data);
+        }
+      });
+    }
   } // a function which handles posting a message to the database
 };
 

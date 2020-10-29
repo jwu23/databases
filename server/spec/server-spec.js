@@ -14,7 +14,7 @@ describe('Persistent Node Chat Server', function() {
       password: '',
       database: 'chat'
     });
-    dbConnection.connect((err)=> { console.log('connected to sql', err); });
+    dbConnection.connect();
 
     var tablename = 'messages'; // TODO: fill this out
 
@@ -50,7 +50,6 @@ describe('Persistent Node Chat Server', function() {
         // TODO: You might have to change this test to get all the data from
         // your message table, since this is schema-dependent.
         var queryString = 'SELECT * FROM messages';
-        console.log('queryString', queryString);
         var queryArgs = [];
 
         dbConnection.query(queryString, queryArgs, function(err, results) {
