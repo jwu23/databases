@@ -2,9 +2,9 @@ var db = require('../db');
 
 // handle connection in here ?
 
+db.dbConnection.connect();
 module.exports = {
   getAll: function (callback) {
-    db.dbConnection.connect();
     db.dbConnection.query('SELECT username FROM messages;', function (error, results, fields) {
       if (error) {
         callback(error, null);
@@ -14,8 +14,7 @@ module.exports = {
   },
   create: function (data, callback) {
     console.log('username', data.username);
-    db.dbConnection.connect();
-    db.dbConnection.query(`INSERT INTO messages (username) VALUES ("${data.username}");`, function (error, results, fields) {
+    db.dbConnection.query(`insert into messages (username) values ("${data.username}");`, function (error, results, fields) {
       if (error) {
         callback(error, null);
       } else {

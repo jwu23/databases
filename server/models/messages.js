@@ -1,11 +1,12 @@
 var db = require('../db');
 
+// db.dbConnection.connect();
+
 module.exports = {
   getAll: function (callback) {
     // write function to access db
     // return all data
-    db.dbConnection.connect();
-    db.dbConnection.query('SELECT message FROM messages;', function (error, results, fields) {
+    db.dbConnection.query('SELECT * FROM messages WHERE newMessage NOT LIKE "null";', function (error, results, fields) {
       if (error) {
         callback(error, null);
       }
@@ -14,9 +15,8 @@ module.exports = {
     });
   }, // a function which produces all the messages
   create: function (data, callback) {
-    console.log('message data', data);
-    db.dbConnection.connect();
-    db.dbConnection.query(`INSERT INTO messages (username, roomname, message) VALUES ('${data.username}', '${data.roomname}', '${data.text}');`, function (error, results, fields) {
+    console.log('message data', data.message);
+    db.dbConnection.query(`INSERT INTO messages (username, roomname, newMessage) VALUES ("${data.username}", "${data.roomname}", "${data.message}");`, function (error, results, fields) {
       if (error) {
         callback(error, null);
       } else {

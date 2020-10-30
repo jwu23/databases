@@ -7,7 +7,7 @@ module.exports = {
     // send back the requested response (error first)
     models.messages.getAll((err, data) => {
       if (err) {
-        res.sendStatus(400);
+        res.sendStatus(404);
       } else {
         res.status(200).json(data);
       }

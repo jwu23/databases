@@ -11,7 +11,7 @@ module.exports = {
     });
   },
   post: function (req, res) {
-    // console.log(req.body);
+    console.log('console.log: req.body:', req.body);
     if (req.body === undefined) {
       res.sendStatus(404);
       res.end();
